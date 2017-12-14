@@ -20,9 +20,9 @@
     </div>
   </div>
   <div v-if="app_status == 2">
-    <payment-board @transferPage="gotoPage"></payment-board>
+    <payment-board :total-price="price"></payment-board>
   </div>
-  <cart-board :total-price="price"></cart-board>
+  <cart-board :total-price="price" :item-list="purchased_list" @transferPage="gotoPage" v-if="app_status == 1"></cart-board>
 </div>
 
 </template>

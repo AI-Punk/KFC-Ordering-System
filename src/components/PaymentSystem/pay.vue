@@ -3,8 +3,8 @@
     <div class="ui segment">
       <h3 class="ui header">就餐方式</h3>
       <div class="ui buttons">
-        <button class="ui button" type="button" name="button">堂食</button>
-        <button class="ui button" type="button" name="button">外带</button>
+        <button class="ui red inverted button" type="button" name="button">堂食</button>
+        <button class="ui orange inverted button" type="button" name="button">外带</button>
       </div>
     </div>
     <div class="ui segment">
@@ -17,7 +17,7 @@
     </div>
     <div class="ui segment">
       <h3 class="ui header">价格</h3>
-      $
+      $ {{TotalPrice}}
       <div class="ui divider"></div>
       <h3 class="ui header">支付方式</h3>
       <div class="ui five column grid">
@@ -36,6 +36,7 @@
 <script>
 export default {
   name: 'pay',
+  props: ['TotalPrice'],
   data: function () {
     return {
       types: [

@@ -4,11 +4,19 @@
       <i class="ui inverted big food icon"></i>
       $ {{TotalPrice}}
     </div>
+    <div class="ui simple dropdown item">
+      <i class="ui angle up big icon"></i>
+      <div class="menu">
+        <a class="item" v-for="item in ItemList">
+          {{item.name}} | {{item.price}}
+        </a>
+      </div>
+    </div>
     <div class="ui right red inverted menu">
-      <div class="item" @click="payBill()">
+      <a class="item" @click="payBill()">
         Finished.
         <i class="ui right angle icon"></i>
-      </div>
+      </a>
     </div>
   </div>
 </template>
@@ -16,7 +24,7 @@
 <script>
 export default {
   name: 'cart',
-  props: ['TotalPrice'],
+  props: ['TotalPrice', 'ItemList'],
   data: function () {
     return {
       price: 0
@@ -24,7 +32,7 @@ export default {
   },
   methods: {
     payBill: function () {
-      this.$emit('transferPage',2)
+      this.$emit('transferPage', 2)
     }
   }
 }
