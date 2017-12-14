@@ -4,14 +4,14 @@
       <i class="ui inverted big food icon"></i>
       $ {{TotalPrice}}
     </div>
-    <div class="ui simple dropdown item">
+    <!-- <div class="ui simple dropdown item">
       <i class="ui angle up big icon"></i>
       <div class="menu">
         <a class="item" v-for="item in ItemList">
           {{item.name}} | {{item.price}}
         </a>
       </div>
-    </div>
+    </div> -->
     <div class="ui right red inverted menu">
       <a class="item" @click="payBill()">
         Finished.

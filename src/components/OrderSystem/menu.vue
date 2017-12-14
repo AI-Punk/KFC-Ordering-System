@@ -1,15 +1,18 @@
 <template lang="html">
-<div class="ui vertical fluid menu">
-  <a class="item" v-for="type in types">
-    <div class="ui basic segment">
-      <div class="image">
-        <img width="100%" :src="type.image">
-      </div>
-      {{type.name}}
-    </div>
-  </a>
+  <div class="">
+    <div class="ui vertical fluid menu" id="type-menu">
+      <a class="item" v-for="type in types">
+        <div class="ui basic segment">
+          <div class="image">
+            <img width="100%" :src="type.image">
+          </div>
+          {{type.name}}
+        </div>
+      </a>
 
-</div>
+    </div>
+  </div>
+
 </template>
 
 <script>
@@ -48,8 +51,12 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="css" scoped>
 .image{
   width:4rem;
+}
+#type-menu{
+  height:529px;
+  overflow:auto;
 }
 </style>

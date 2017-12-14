@@ -29,6 +29,8 @@
           </div>
         </div>
       </div>
+      <div class="ui divider"></div>
+      <button class="ui green button" type="button" name="button" @click="confirmPayment()">确认支付</button>
     </div>
   </div>
 </template>
@@ -53,6 +55,11 @@ export default {
           image: 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1403279034,2865000485&fm=27&gp=0.jpg'
         }
       ]
+    }
+  },
+  methods: {
+    confirmPayment: function () {
+      this.$emit('transferPage', 3)
     }
   }
 }
