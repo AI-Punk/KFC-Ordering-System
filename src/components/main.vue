@@ -22,7 +22,7 @@
       <payment-board :total-price="price" @transferPage="gotoPage"></payment-board>
     </div>
     <div v-if="app_status == 3">
-      <order-board></order-board>
+      <order-board @transferPage='gotoPage' @transferShoppingCart='initShoppingCart'></order-board>
     </div>
   </div>
   <cart-board :total-price="price" :item-list="purchased_list" @transferPage="gotoPage" v-if="app_status == 1"></cart-board>
@@ -60,6 +60,10 @@ export default {
     priceAdd: function (item) {
       this.price += parseInt(item.price)
       this.purchased_list.push(item)
+    },
+    initShoppingCart: function () {
+      this.purchased_list = []
+      this.price = 0
     }
   },
   components: {
