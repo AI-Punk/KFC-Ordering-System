@@ -6,7 +6,7 @@
       <div class="ui divider">
 
       </div>
-      <h1 class="ui red header">1501</h1>
+      <h1 class="ui red header">{{OrderId}}</h1>
       <div class="ui divider"></div>
       <button class="ui red button" type="button" name="button" @click="gotoMainPage()">Back</button>
     </div>
@@ -16,6 +16,7 @@
 <script>
 export default {
   name: 'order',
+  props: ['OrderId'],
   data: function () {
     return {}
   },

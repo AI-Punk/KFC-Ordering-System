@@ -36,9 +36,10 @@
 </template>
 
 <script>
+import $ from 'jquery'
 export default {
   name: 'pay',
-  props: ['TotalPrice'],
+  props: ['TotalPrice', 'PurchasedList', 'UserId'],
   data: function () {
     return {
       types: [
@@ -59,7 +60,34 @@ export default {
   },
   methods: {
     confirmPayment: function () {
+      // let self = this
+      var orderId, tmp
+      // var GeniusTransfer = function (num) {
+      //   return self.$emit('transderOrderId', num)
+      // }
+      tmp = this.UserId
+      console.log('UserId == ', tmp)
       this.$emit('transferPage', 3)
+      // self.$emit('transferOrderId', 1501)
+      $.ajax({
+        url: 'http://localhost:5000/api/createorder',
+        method: 'post',
+        dataType: 'json',
+        async: false,
+        // contentType: 'application/json',
+        data: JSON.stringify({
+          user_id: this.UserId,
+          list: this.PurchasedList
+        }),
+        success: function (res) {
+          // console.log(true)
+          console.log(res.order_id)
+          orderId = res.order_id
+          // self.$emit('transferOrderId', res.order_id)
+          // GeniusTransfer(res.order_id)
+        }
+      })
+      this.$emit('transferOrderId', orderId)
     }
   }
 }

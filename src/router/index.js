@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import MainBoard from '@/components/main'
-import Cart from '@/components/ShoppingCart/cart'
+import Alert from '@/components/AlertSystem/AlertSystem'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -12,9 +13,9 @@ export default new Router({
       component: MainBoard
     },
     {
-      path: '/test',
-      name: 'test',
-      component: Cart
+      path: '/alert',
+      name: 'alert',
+      component: Alert
     }
   ]
 })

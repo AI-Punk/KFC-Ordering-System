@@ -19,10 +19,10 @@
       </div>
     </div>
     <div v-if="app_status == 2">
-      <payment-board :total-price="price" @transferPage="gotoPage"></payment-board>
+      <payment-board :purchased-list="purchased_list" :total-price="price" :user-id="user_id" @transferPage="gotoPage" @transferOrderId="getOrderId"></payment-board>
     </div>
     <div v-if="app_status == 3">
-      <order-board @transferPage='gotoPage' @transferShoppingCart='initShoppingCart'></order-board>
+      <order-board :order-id="order_id" @transferPage='gotoPage' @transferShoppingCart='initShoppingCart'></order-board>
     </div>
   </div>
   <cart-board :total-price="price" :item-list="purchased_list" @transferPage="gotoPage" v-if="app_status == 1"></cart-board>
@@ -45,7 +45,9 @@ export default {
       title: 'KFC',
       app_status: 0,
       price: 0,
-      purchased_list: []
+      purchased_list: [],
+      order_id: undefined,
+      user_id: 15711001 // parseInt(10000 * Math.random())
     }
   },
   methods: {
@@ -64,6 +66,10 @@ export default {
     initShoppingCart: function () {
       this.purchased_list = []
       this.price = 0
+    },
+    getOrderId: function (num) {
+      this.order_id = num
+      console.log('order-id was correct set as:', num)
     }
   },
   components: {
