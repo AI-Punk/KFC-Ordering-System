@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="ui red inverted bottom fixed menu">
+  <div class="ui orange inverted bottom fixed menu">
     <div class="item">
       <i class="ui inverted big food icon"></i>
       $ {{TotalPrice}}
@@ -12,7 +12,7 @@
         </a>
       </div>
     </div> -->
-    <div class="ui right red inverted menu">
+    <div class="ui right orange inverted menu">
       <a class="item" @click="payBill()">
         Finished.
         <i class="ui right angle icon"></i>

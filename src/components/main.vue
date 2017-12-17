@@ -1,6 +1,6 @@
 <template lang="html">
 <div>
-  <div class="ui red inverted top fixed menu">
+  <div class="ui orange inverted top fixed menu">
     <a class="item" @click="returnPage()"><i class="angle left big icon"></i></a>
     <div class="item">
       <h3>{{title}}</h3>
@@ -42,12 +42,12 @@ export default {
   name: 'main',
   data: function () {
     return {
-      title: 'KFC',
+      title: 'Subeedy',
       app_status: 0,
       price: 0,
       purchased_list: [],
       order_id: undefined,
-      user_id: 15711001 // parseInt(10000 * Math.random())
+      user_id: parseInt(10000 * Math.random())
     }
   },
   methods: {
